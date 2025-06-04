@@ -1,0 +1,98 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TrendyVastra - Stylish. Comfortable. Affordable.</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Hero Banner Section -->
+    <section class="hero-banner">
+        <img src="banner.png" alt="TrendyVastra Banner">
+    </section>
+
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#shop">Shop</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- Product Section -->
+    <section id="shop" class="products">
+        <h2>Our Collection</h2>
+        <div class="product-grid">
+            <div class="product-card">
+                <img src="product1.jpg" alt="Product 1">
+                <h3>Elegant Black Kurta</h3>
+                <p>₹1299</p>
+                <button>Add to Cart</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Razorpay Payment Button -->
+    <section style="text-align:center; margin-top: 40px;">
+        <button id="rzp-button1" style="background-color:#FFD700; color:black; padding:10px 20px; border:none; border-radius:5px; cursor:pointer;">Pay Now</button>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <h2>About TrendyVastra</h2>
+        <p>We bring you a modern touch to traditional fashion. TrendyVastra offers a curated collection of ethnic wear that’s stylish, comfortable, and affordable.</p>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <h2>Contact Us</h2>
+        <p>Email: support@trendyvastra.in</p>
+        <p>Instagram: @trendyvastra</p>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 TrendyVastra. All rights reserved.</p>
+    </footer>
+
+    <!-- Razorpay Script -->
+    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+    <script>
+        var options = {
+            "key": "rzp_test_YourKeyHere",
+            "amount": "129900",
+            "currency": "INR",
+            "name": "TrendyVastra",
+            "description": "Elegant Black Kurta",
+            "image": "banner.png",
+            "handler": function (response){
+                alert("Payment Successful: " + response.razorpay_payment_id);
+            },
+            "prefill": {
+                "name": "",
+                "email": "",
+                "contact": ""
+            },
+            "theme": {
+                "color": "#FFD700"
+            }
+        };
+        var rzp1 = new Razorpay(options);
+        document.getElementById('rzp-button1').onclick = function(e){
+            rzp1.open();
+            e.preventDefault();
+        }
+    </script>
+
+    <!-- WhatsApp Chat Floating Button -->
+    <a href="https://wa.me/919999999999" class="whatsapp_float" target="_blank">
+        <img src="https://img.icons8.com/color/48/000000/whatsapp--v1.png" alt="Chat on WhatsApp" style="position:fixed; bottom:20px; right:20px; z-index:100; width:50px; height:50px;">
+    </a>
+
+</body>
+</html>
